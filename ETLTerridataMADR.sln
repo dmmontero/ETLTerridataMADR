@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.779
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "ETLTerridataMADR", "ETLTerridataMADR\ETLTerridataMADR.dtproj", "{3CB9A1D6-178B-4169-BA72-D3FB7978826C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3CB9A1D6-178B-4169-BA72-D3FB7978826C}.Development|Default.ActiveCfg = Development
+		{3CB9A1D6-178B-4169-BA72-D3FB7978826C}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7C1FCF8D-C049-4573-BFA6-6391194217A8}
+	EndGlobalSection
+EndGlobal
