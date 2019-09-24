@@ -11,9 +11,1181 @@
   DTS:LocaleID="9226"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionGUID="{107C36FF-1EAB-46E9-8C65-F7C91A14D6CA}">
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{128294EE-9904-4930-8F04-E4523C6A88CA}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Administrador de conexiones con Excel]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{61C214EF-0756-44C4-835C-A8C7133CECBF}"
+      DTS:ObjectName="Administrador de conexiones con Excel">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\TerridataBD\ABRIL - RFR99 AGRONET (3).XLSX;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
   <DTS:Variables />
-  <DTS:Executables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Contenedor de secuencias"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Contenedor de secuencias"
+      DTS:DTSID="{B75CE2FE-416A-4E48-AECB-46F14CE790B6}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Contenedor de secuencias">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Contenedor de secuencias\Excel a Stage"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Tarea Flujo de datos"
+          DTS:DTSID="{16853144-74D2-47FC-A9DD-55D018203F30}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Excel a Stage"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel"
+                  componentClassID="Microsoft.ExcelSource"
+                  contactInfo="Origen de Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+                  description="Origen de Excel"
+                  name="Origen de Excel"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                      name="OpenRowset">Creditos$</property>
+                    <property
+                      dataType="System.String"
+                      description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="Comando SQL para ejecutar."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.String"
+                      description="Variable que contiene el comando SQL para ejecutar."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="La asignación de parámetros del comando SQL a variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Administrador de conexiones con Excel]"
+                      connectionManagerRefId="Package.ConnectionManagers[Administrador de conexiones con Excel]"
+                      description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel]"
+                      name="Salida de origen de Excel">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[SURRED]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[SURRED]"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[SURRED]"
+                          name="SURRED"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[anored]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[anored]"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[anored]"
+                          name="anored"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[mesred]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[mesred]"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[mesred]"
+                          name="mesred"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[diared]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[diared]"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[diared]"
+                          name="diared"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[NURRED]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[NURRED]"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[NURRED]"
+                          name="NURRED"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[CLARED]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[CLARED]"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[CLARED]"
+                          name="CLARED"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[FCORED]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[FCORED]"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[FCORED]"
+                          name="FCORED"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Ffired]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Ffired]"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Ffired]"
+                          name="Ffired"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[TOPRED]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[TOPRED]"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[TOPRED]"
+                          name="TOPRED"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[NORRED]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[NORRED]"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[NORRED]"
+                          name="NORRED"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[INORED]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[INORED]"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[INORED]"
+                          name="INORED"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[suored]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[suored]"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[suored]"
+                          name="suored"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[TIDRED]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[TIDRED]"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[TIDRED]"
+                          name="TIDRED"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[NIDRED]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[NIDRED]"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[NIDRED]"
+                          name="NIDRED"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[nomred]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[nomred]"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[nomred]"
+                          name="nomred"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[VACRED]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[VACRED]"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[VACRED]"
+                          name="VACRED"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[TUSRED]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[TUSRED]"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[TUSRED]"
+                          name="TUSRED"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[VCRRED]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[VCRRED]"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[VCRRED]"
+                          name="VCRRED"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[MARRED]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[MARRED]"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[MARRED]"
+                          name="MARRED"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[DEPRED]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[DEPRED]"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[DEPRED]"
+                          name="DEPRED"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[MUNRED]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[MUNRED]"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[MUNRED]"
+                          name="MUNRED"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[TIORED]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[TIORED]"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[TIORED]"
+                          name="TIORED"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[DTFRED]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[DTFRED]"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[DTFRED]"
+                          name="DTFRED"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[TOBRED]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[TOBRED]"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[TOBRED]"
+                          name="TOBRED"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[POBRED]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[POBRED]"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[POBRED]"
+                          name="POBRED"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[TRERED]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[TRERED]"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[TRERED]"
+                          name="TRERED"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[PRERED]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[PRERED]"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[PRERED]"
+                          name="PRERED"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[FORRED]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[FORRED]"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[FORRED]"
+                          name="FORRED"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[FOBRED]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[FOBRED]"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[FOBRED]"
+                          name="FOBRED"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[FPCRED]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[FPCRED]"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[FPCRED]"
+                          name="FPCRED"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[FUCRED]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[FUCRED]"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[FUCRED]"
+                          name="FUCRED"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[FPIRED]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[FPIRED]"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[FPIRED]"
+                          name="FPIRED"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[FUIRED]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[FUIRED]"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[FUIRED]"
+                          name="FUIRED"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[GRARED]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[GRARED]"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[GRARED]"
+                          name="GRARED"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[PLARED]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[PLARED]"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[PLARED]"
+                          name="PLARED"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[VICRED]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[VICRED]"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[VICRED]"
+                          name="VICRED"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[RUORED]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[RUORED]"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[RUORED]"
+                          name="RUORED"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[GENRED]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[GENRED]"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[GENRED]"
+                          name="GENRED"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[USURED]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[USURED]"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[USURED]"
+                          name="USURED"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[PNJRED]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[PNJRED]"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[PNJRED]"
+                          name="PNJRED"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[TCRRED]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[TCRRED]"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[TCRRED]"
+                          name="TCRRED"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[TEMRED]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[TEMRED]"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[TEMRED]"
+                          name="TEMRED"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[NBRED]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[NBRED]"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[NBRED]"
+                          name="NBRED"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[SFARED]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[SFARED]"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[SFARED]"
+                          name="SFARED"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[PFARED]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[PFARED]"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[PFARED]"
+                          name="PFARED"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[VFARED]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[VFARED]"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[VFARED]"
+                          name="VFARED"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[SICRED]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[SICRED]"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[SICRED]"
+                          name="SICRED"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[CIURED]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[CIURED]"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[CIURED]"
+                          name="CIURED"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[pcrred]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[pcrred]"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[pcrred]"
+                          name="pcrred"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[PRGRED]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[PRGRED]"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].Columns[PRGRED]"
+                          name="PRGRED"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[SURRED]"
+                          dataType="wstr"
+                          length="255"
+                          name="SURRED" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[anored]"
+                          dataType="r8"
+                          name="anored" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[mesred]"
+                          dataType="wstr"
+                          length="255"
+                          name="mesred" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[diared]"
+                          dataType="wstr"
+                          length="255"
+                          name="diared" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[NURRED]"
+                          dataType="wstr"
+                          length="255"
+                          name="NURRED" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[CLARED]"
+                          dataType="wstr"
+                          length="255"
+                          name="CLARED" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[FCORED]"
+                          dataType="wstr"
+                          length="255"
+                          name="FCORED" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Ffired]"
+                          dataType="wstr"
+                          length="255"
+                          name="Ffired" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[TOPRED]"
+                          dataType="wstr"
+                          length="255"
+                          name="TOPRED" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[NORRED]"
+                          dataType="wstr"
+                          length="255"
+                          name="NORRED" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[INORED]"
+                          dataType="wstr"
+                          length="255"
+                          name="INORED" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[suored]"
+                          dataType="r8"
+                          name="suored" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[TIDRED]"
+                          dataType="r8"
+                          name="TIDRED" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[NIDRED]"
+                          dataType="r8"
+                          name="NIDRED" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[nomred]"
+                          dataType="wstr"
+                          length="255"
+                          name="nomred" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[VACRED]"
+                          dataType="r8"
+                          name="VACRED" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[TUSRED]"
+                          dataType="wstr"
+                          length="255"
+                          name="TUSRED" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[VCRRED]"
+                          dataType="r8"
+                          name="VCRRED" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[MARRED]"
+                          dataType="r8"
+                          name="MARRED" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[DEPRED]"
+                          dataType="r8"
+                          name="DEPRED" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[MUNRED]"
+                          dataType="r8"
+                          name="MUNRED" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[TIORED]"
+                          dataType="wstr"
+                          length="255"
+                          name="TIORED" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[DTFRED]"
+                          dataType="r8"
+                          name="DTFRED" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[TOBRED]"
+                          dataType="r8"
+                          name="TOBRED" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[POBRED]"
+                          dataType="r8"
+                          name="POBRED" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[TRERED]"
+                          dataType="r8"
+                          name="TRERED" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[PRERED]"
+                          dataType="r8"
+                          name="PRERED" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[FORRED]"
+                          dataType="wstr"
+                          length="255"
+                          name="FORRED" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[FOBRED]"
+                          dataType="r8"
+                          name="FOBRED" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[FPCRED]"
+                          dataType="wstr"
+                          length="255"
+                          name="FPCRED" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[FUCRED]"
+                          dataType="wstr"
+                          length="255"
+                          name="FUCRED" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[FPIRED]"
+                          dataType="wstr"
+                          length="255"
+                          name="FPIRED" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[FUIRED]"
+                          dataType="wstr"
+                          length="255"
+                          name="FUIRED" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[GRARED]"
+                          dataType="r8"
+                          name="GRARED" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[PLARED]"
+                          dataType="r8"
+                          name="PLARED" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[VICRED]"
+                          dataType="wstr"
+                          length="255"
+                          name="VICRED" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[RUORED]"
+                          dataType="wstr"
+                          length="255"
+                          name="RUORED" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[GENRED]"
+                          dataType="wstr"
+                          length="255"
+                          name="GENRED" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[USURED]"
+                          dataType="wstr"
+                          length="255"
+                          name="USURED" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[PNJRED]"
+                          dataType="wstr"
+                          length="255"
+                          name="PNJRED" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[TCRRED]"
+                          dataType="wstr"
+                          length="255"
+                          name="TCRRED" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[TEMRED]"
+                          dataType="wstr"
+                          length="255"
+                          name="TEMRED" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[NBRED]"
+                          dataType="r8"
+                          name="NBRED" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[SFARED]"
+                          dataType="wstr"
+                          length="255"
+                          name="SFARED" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[PFARED]"
+                          dataType="wstr"
+                          length="255"
+                          name="PFARED" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[VFARED]"
+                          dataType="wstr"
+                          length="255"
+                          name="VFARED" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[SICRED]"
+                          dataType="wstr"
+                          length="255"
+                          name="SICRED" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[CIURED]"
+                          dataType="wstr"
+                          length="255"
+                          name="CIURED" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[pcrred]"
+                          dataType="wstr"
+                          length="255"
+                          name="pcrred" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[PRGRED]"
+                          dataType="wstr"
+                          length="255"
+                          name="PRGRED" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel]"
+                      isErrorOut="true"
+                      name="Salida de error de origen de Excel">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[SURRED]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[SURRED]"
+                          name="SURRED" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[anored]"
+                          dataType="r8"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[anored]"
+                          name="anored" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[mesred]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[mesred]"
+                          name="mesred" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[diared]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[diared]"
+                          name="diared" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[NURRED]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[NURRED]"
+                          name="NURRED" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[CLARED]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[CLARED]"
+                          name="CLARED" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[FCORED]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[FCORED]"
+                          name="FCORED" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Ffired]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Ffired]"
+                          name="Ffired" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[TOPRED]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[TOPRED]"
+                          name="TOPRED" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[NORRED]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[NORRED]"
+                          name="NORRED" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[INORED]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[INORED]"
+                          name="INORED" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[suored]"
+                          dataType="r8"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[suored]"
+                          name="suored" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[TIDRED]"
+                          dataType="r8"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[TIDRED]"
+                          name="TIDRED" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[NIDRED]"
+                          dataType="r8"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[NIDRED]"
+                          name="NIDRED" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[nomred]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[nomred]"
+                          name="nomred" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[VACRED]"
+                          dataType="r8"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[VACRED]"
+                          name="VACRED" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[TUSRED]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[TUSRED]"
+                          name="TUSRED" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[VCRRED]"
+                          dataType="r8"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[VCRRED]"
+                          name="VCRRED" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[MARRED]"
+                          dataType="r8"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[MARRED]"
+                          name="MARRED" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[DEPRED]"
+                          dataType="r8"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[DEPRED]"
+                          name="DEPRED" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[MUNRED]"
+                          dataType="r8"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[MUNRED]"
+                          name="MUNRED" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[TIORED]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[TIORED]"
+                          name="TIORED" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[DTFRED]"
+                          dataType="r8"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[DTFRED]"
+                          name="DTFRED" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[TOBRED]"
+                          dataType="r8"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[TOBRED]"
+                          name="TOBRED" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[POBRED]"
+                          dataType="r8"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[POBRED]"
+                          name="POBRED" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[TRERED]"
+                          dataType="r8"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[TRERED]"
+                          name="TRERED" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[PRERED]"
+                          dataType="r8"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[PRERED]"
+                          name="PRERED" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[FORRED]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[FORRED]"
+                          name="FORRED" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[FOBRED]"
+                          dataType="r8"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[FOBRED]"
+                          name="FOBRED" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[FPCRED]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[FPCRED]"
+                          name="FPCRED" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[FUCRED]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[FUCRED]"
+                          name="FUCRED" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[FPIRED]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[FPIRED]"
+                          name="FPIRED" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[FUIRED]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[FUIRED]"
+                          name="FUIRED" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[GRARED]"
+                          dataType="r8"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[GRARED]"
+                          name="GRARED" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[PLARED]"
+                          dataType="r8"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[PLARED]"
+                          name="PLARED" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[VICRED]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[VICRED]"
+                          name="VICRED" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[RUORED]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[RUORED]"
+                          name="RUORED" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[GENRED]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[GENRED]"
+                          name="GENRED" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[USURED]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[USURED]"
+                          name="USURED" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[PNJRED]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[PNJRED]"
+                          name="PNJRED" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[TCRRED]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[TCRRED]"
+                          name="TCRRED" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[TEMRED]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[TEMRED]"
+                          name="TEMRED" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[NBRED]"
+                          dataType="r8"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[NBRED]"
+                          name="NBRED" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[SFARED]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[SFARED]"
+                          name="SFARED" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[PFARED]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[PFARED]"
+                          name="PFARED" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[VFARED]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[VFARED]"
+                          name="VFARED" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[SICRED]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[SICRED]"
+                          name="SICRED" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[CIURED]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[CIURED]"
+                          name="CIURED" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[pcrred]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[pcrred]"
+                          name="pcrred" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[PRGRED]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[PRGRED]"
+                          name="PRGRED" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="142,42"
+          Id="Package\Contenedor de secuencias\Excel a Stage"
+          TopLeft="151,36" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="493,242"
+          Size="493,285"
+          Id="Package\Contenedor de secuencias"
+          TopLeft="280,16" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Contenedor de secuencias\Excel a Stage">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="153,42"
+          Id="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel"
+          TopLeft="304,39" />
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Contenedor de secuencias\Excel a Stage\Origen de Excel">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
